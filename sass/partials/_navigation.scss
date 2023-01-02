@@ -140,8 +140,7 @@ button {
     fill: $color_white;
 
     &:hover,
-    &:focus,
-    &:visited {
+    &:focus {
         background-color: $color_white;
         color: $brand_primary;
     }

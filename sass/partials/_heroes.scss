@@ -97,7 +97,7 @@
 .blobTopLeft {
     top: 0;
     left: 0px;
-    background-position: top;
+    background-position: top left;
     background-image: url(../img/banners/footer_slushes_tl.svg);
 }
 
@@ -105,7 +105,7 @@
     bottom: 0;
     right: 0px;
     max-width: 250px;
-    background-position: bottom;
+    background-position: bottom right;
     background-image: url(../img/banners/footer_slushes_br.svg);
 
     @include MQ(M) {
@@ -118,7 +118,7 @@
     right: 0px;
     left: 0;
     height: 80px;
-    background-position: bottom;
+    background-position: bottom right;
     background-image: url(../img/banners/section_slush_bottom.svg)
 }
 
@@ -127,6 +127,6 @@
     right: 0px;
     left: 0;
     height: 120px;
-    background-position: top;
+    background-position: top left;
     background-image: url(../img/banners/section_slush_top.svg)
 }

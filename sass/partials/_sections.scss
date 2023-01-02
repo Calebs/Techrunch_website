@@ -226,5 +226,39 @@ footer[role="contentinfo"] {
 }
 
 .projectBannerIcon {
-    max-width: 48px;
+    max-width: 42px;
+}
+
+// Contact us form
+
+.contactFormInner {
+    max-width: 570px;
+}
+
+.error_message {
+    width: 100%;
+    background-color: white;
+    border: 1px solid $brand_red;
+    color: $brand_black;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+
+.inputFormWrapper {
+    overflow: hidden;
+    border: 1px solid rgba($brand_secondary, .3);
+    border-radius: 15px;
+    margin-bottom: 20px
+}
+
+.optionsList {
+    @include flexbox();
+    flex-wrap: wrap;
+    margin: 0 -5px;
+}
+
+.selectorItem {
+    padding: 5px;
 }
