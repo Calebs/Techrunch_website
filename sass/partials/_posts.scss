@@ -1,0 +1,323 @@
+
+.postList {
+    flex-wrap: wrap;
+}
+
+.postThumb {
+    margin-bottom: 20px;
+}
+
+.postThumbWrapper {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    margin: auto;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 15px;
+    border: 1px solid $border_grey_light;
+    @include transition(all .4s ease-in-out);
+    
+    &:hover, &:focus {
+        border-color: transparent;
+        box-shadow: 2px 2px 8px rgba($brand_accent, .15);
+    }
+}
+
+.heavyPadding {
+    padding: 40px;
+    border-radius: 25px;
+}
+
+.postThumbDetails {
+    width: 100%;
+    padding: 15px;
+}
+
+.postThumbImage {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+.postImageWrapper {
+    display: none;
+    position: relative;
+    padding-bottom: 52.25%;
+    margin: 0 auto;
+    width: 100%;
+    background-color: $brand_primary;
+    opacity: 1;
+
+    .has_image & {
+        display: block;
+    }
+
+    &:hover, &:focus {
+        opacity: .75;
+    }
+}
+
+.bannerImage {
+    position: absolute;
+    top: 0;
+    right: auto;
+    bottom: auto;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    font-family: "object-fit:cover";
+    object-fit: cover;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.postExcerpt {
+    font-size: 16px;
+    line-height: 1.8em;
+    max-height: 12.6em;
+    overflow: hidden;
+    color: inherit;
+    text-overflow: ellipsis;
+}
+
+.postTag {
+    z-index: 10;
+    color: $color_grey_dark;
+
+    a {
+        text-decoration: underline;
+        color: $brand_black;
+    }
+}
+
+.postThumb {
+    margin-bottom: 20px;
+}
+
+.postThumbWrapper {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    margin: auto;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 6px;
+    @include transition(all .4s ease-in-out);
+    
+    &:hover, &:focus {
+        box-shadow: 2px 2px 8px rgba(black, .15);
+    }
+}
+
+.postThumbDetails {
+    width: 100%;
+    padding: 20px;
+}
+
+.postThumbImage {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+.postImageWrapper {
+    position: relative;
+    padding-bottom: 52.25%;
+    margin: 0 auto;
+    width: 100%;
+    display: block;
+    background-color: $brand_primary;
+    opacity: 1;
+
+    &:hover, &:focus {
+        opacity: .75;
+    }
+}
+
+.featuredImage {
+    position: relative;
+    margin-bottom: 30px;
+    text-align: center;
+
+    .contentRow & {
+        margin-top: -50px;
+    }
+    
+    img {
+        display: inline-block;
+    }
+}
+
+.bannerImage {
+    position: absolute;
+    top: 0;
+    right: auto;
+    bottom: auto;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    font-family: "object-fit:cover";
+    object-fit: cover;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.postExcerpt {
+    font-size: 16px;
+    line-height: 1.8em;
+    max-height: 12.6em;
+    overflow: hidden;
+    color: inherit;
+    text-overflow: ellipsis;
+}
+
+.postCatTag {
+    font-size: 13px;
+    border-radius: 4px;
+    padding: .45em 1.5em;
+    background-color: $brand_secondary;
+    display: inline-block;
+    text-align: center;
+    text-transform: capitalize;
+    color: $border_grey;
+    white-space: nowrap;
+}
+
+.postTypeTag {
+    font-size: 12px;
+    border-radius: 2px;
+    padding: .45em 1.5em;
+    background-color: $border_grey;
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    color: $color_grey_dark;
+    white-space: nowrap;
+}
+
+// List post page.
+
+.post_mast_head {
+    clear: both;
+    padding-top: 150px;
+    padding-bottom: 50px;
+}
+
+.contentRow {
+    padding: 70px 0;
+
+    + .contentRow {
+        border-top: 1px solid $border_grey;
+    }
+}
+
+.postContentArea {
+    max-width: 850px;
+
+    @include MQ(M) {
+        padding-right: 90px;
+    }
+
+    p + p {
+        margin-top: 20px;
+    }
+}
+
+// post controls
+
+.postControlItem {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.postControlBtn {
+    width: 100%;
+    @include flexbox();
+    justify-content: space-between;
+    padding: 15px 20px;
+    text-transform: uppercase;
+    align-items: center;
+    color: rgba($brand_black, .8);
+    background-color: $border_grey_light;
+    border-radius: 3px;
+    @include transition(all .4s ease-in-out);
+
+    @include MQ-MAX(M) {
+        margin-bottom: 50px;
+    }
+
+    &:hover, &:focus {
+        color: $brand_black;
+        font-weight: bold;
+    }
+}
+
+.postArticle {
+    overflow: hidden;
+    font-size: 15px;
+
+    @include MQ(M) {
+        font-size: 18px;
+    }
+
+    img {
+        display: inline-block;
+        object-fit: fill;
+        object-position: center center;
+        text-align: center;
+        margin: 20px 0 7.5px;
+    }
+    
+    ol,ul {
+        list-style: inherit;
+        padding: 10px 20px;
+
+        li {
+            display: list-item;
+            clear: both;
+            padding-bottom: 5px;
+        }
+    }
+    
+    ol {
+        li {
+            list-style: decimal;
+
+            > ol > li {
+                list-style: lower-alpha;
+            } 
+        }
+    }
+        
+    h2, h3, h4 {
+        margin: 40px 0 20px;
+        display: block;
+        font-weight: 700;
+    }
+    
+    p:not(:last-of-type) {
+        margin-bottom: 1em;
+    }
+}
+
+.postInfoWidget {
+    clear: both;
+    padding: 100px 0 30px;
+    border-bottom: 1px solid $border_grey_dark;
+
+    .title {
+        margin-bottom: 15px;   
+    }
+}
+
+.headermarker {
+    display: block;
+    clear: both;
+    background-color: $brand_primary;
+    height: 6px;
+    width: 80px;
+    margin-bottom: 10px;
+}

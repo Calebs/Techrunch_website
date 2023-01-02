@@ -1,0 +1,159 @@
+.dropdown-menu {
+    font-size: 1em;
+    box-sizing: border-box;
+    visibility: hidden;
+    z-index: 1000;
+    max-width: 460px;
+    padding: 10px;
+    margin: 0;
+    border-radius: 5px;
+    color: $color_grey_dark;
+    background-color: white;
+    box-shadow: 0 0 0 1px rgba(black,0.1), 0 3px 10px 0 rgba(black,0.2);
+    @include transition(all .6s ease-in-out);
+    -webkit-animation: panel-slide-down .6s ease-in-out forwards;
+    animation: panel-slide-down .6s ease-in-out forwards;
+    overflow: hidden;
+    border: none;
+    
+    &.show {
+        visibility: visible;
+    }
+
+    li {
+        display: block;
+        padding: 0;
+        margin:0;
+
+        > *, > a {
+            padding: 10px;
+            display: flex;
+            width: 100%;
+            font-size: 14px;
+            color: $color_text;
+            text-transform: capitalize;
+            line-height: normal;
+            align-items: center;
+            white-space: nowrap;
+
+            &:hover {
+                background: $brand_secondary_light;
+                color: $brand_black;
+            }
+        }
+
+        .cust_icon {
+            width: 24px;
+            height: 24px;
+        }
+    }
+}
+
+@keyframes panel-slide-down{
+    0%,30% { 
+        margin-top:-15px;
+        opacity:0
+    }
+    to {
+        margin-top:0;
+        opacity:1
+    }
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.tooltip .arrow::before {
+    border-top-color: $brand_black !important;
+}
+
+.tooltip-inner {
+    font-size: 12px;
+    background-color: rgba($brand_black, .90);
+    border-radius: 5px;
+    padding: 6px 12px;
+}
+
+.caret {
+    display: inline-flex;
+    margin-left: 4px;
+
+    &:after {
+        vertical-align: .255em;
+        content: "";
+        border-top: .4em solid;
+        border-right: .35em solid transparent;
+        border-bottom: 0;
+        border-left: .35em solid transparent
+    }
+}
+
+.modal-backdrop {
+    background-color: $brand_black;
+}
+
+.modal-content {
+    border-radius: 15px;
+}
+
+.modal-dialog {
+    z-index: 2000;
+    margin: 5rem auto;
+}
+
+@include MQ(L) {
+    .modal-md {
+        max-width: 650px;
+    }
+
+    .modal-lg, .modal-xl {
+        max-width: 1170px;
+    }
+}
+
+.modal {
+    .modal-open & {
+        background-color: rgba($brand_black, .90)
+    }
+
+    .modal-header {
+        border-bottom: none;
+        padding: 10px 15px 0;
+        @include clearfix;
+        justify-content: flex-start;
+
+        @include MQ(M) {
+            padding: 15px 30px 0;
+        }
+    }
+
+    .modal-body {
+        position: relative;
+        padding: 20px 15px;
+        @include MQ(M) {
+            padding: 30px;
+        }
+    }
+    
+    .subtitle {
+        margin-bottom: 15px;
+        display: block;
+    }
+
+    .content-panel {
+        min-height: 250px;
+    }
+
+    .modal-footer {
+        border-top: none;
+        padding: 0 15px 10px;
+    }
+}
+
+.modal-title {
+    font-size: 16px;
+    font-weight: 700;
+    font-family: $header_font;
+    text-transform: uppercase;
+}

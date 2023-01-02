@@ -1,0 +1,283 @@
+// Forms widget nav
+header[role="banner"] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $header_height;
+    z-index: $header-zindex;
+    @include font-smoothing;
+    
+    [class*="container"] {
+        height: 100%;
+        position: relative;
+    }
+}
+
+.preAuthHeader {
+    @include transition(background-color .6s ease-in-out);
+    /* Force Hardware Acceleration in WebKit */
+    @include transform(translate3d(0, 0, 0));
+    @include backface-visibility(hidden);
+    background-color: $brand_primary;
+
+    @include MQ(L) {
+        color: rgba(white, .65);
+        background: linear-gradient(180deg, $brand_primary 0%, rgba($brand_primary, 0) 100%);
+
+        &.is-fixed {
+            /* when the user scrolls down, we hide the header right above the viewport */
+            position: fixed;
+            top: -$header_height;
+            @include transition(transform .6s ease-in-out);
+        }
+        &.is-visible {
+            /* if the user changes the scrolling direction, we show the header */
+            @include transform(translate3d(0, $header_height, 0));
+            background-color: $brand_primary;
+        }
+    }
+}
+
+.navbarWrapper {
+    @include flexbox();    
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.navbarGroupItem {
+    width: auto;
+    height: 100%;
+    display: block;
+    @include flexbox();
+    align-items: center;
+    position: relative;
+}
+
+.navBarItemLeft {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    z-index: 5;
+    float: left;
+    flex-shrink: 0;
+}
+
+.navBarItemRight {
+    float: right;
+    justify-content: flex-end;
+    z-index: 5;
+    flex-shrink: 0;
+}
+
+.navBarItemCenter {
+    flex-grow: 1;
+
+    @include MQ-MAX(L) {
+        width: 100%;
+        position: absolute;
+        left: 0;
+    }
+
+    @include MQ(L) {
+        padding-left: 40px;
+    }
+}
+
+.brand_img {
+    display: block;
+    
+    header[role="banner"]  &{
+        height: $header_height;
+    }
+}
+
+.logo_link {
+    padding: 0;
+    display: inline-block;
+    line-height: $header_height;
+    width: 160px;
+    position: relative;
+    height: 100%;
+    
+    @include MQ(L) {
+        width: 200px;
+    }
+    
+    >img {
+        vertical-align: middle;
+        display: inline-block;
+    }
+}
+
+.navMenu {
+    @include flexbox();
+    align-items: center;
+    width: 100%;
+}
+
+.menuPrimary {
+    @include transition(all .6s cubic-bezier(.68, .34, .15, 1));
+    transform-origin: top;
+    
+    @include MQ-MAX(L) {
+        left: 0;
+        width: 100%;
+        position: fixed;
+        height: 100%;
+        height: 100vh;
+        visibility: hidden;
+        top: $header_height;
+        flex-direction: column;
+        background-color: white;
+        border-top: 1px solid $border_grey;
+        @include transform(scaleY(0));
+        padding: 20px 15px;
+    }
+
+    .is-active & {
+        @include transform(scaleY(1));
+        visibility: visible;
+        @include transition(transform .8s cubic-bezier(.68, .34, .15, 1));
+    }
+
+    @include MQ(L) {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+.controlBtn {
+    margin-left: 30px;
+    position: relative;
+
+    > a {
+        fill: $brand_primary;
+        display: block;
+
+        &:hover, &:focus {
+            fill: $brand_accent;
+        }
+    }
+}
+
+.menuListItem {
+    position: relative;
+
+    > a {
+        display: block;
+        width: 100%;
+    }
+
+    @include MQ-MAX(L) {
+        display: block;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    @include MQ(L) {
+        + .menuListItem {
+            margin-left: 20px;
+        }
+    }
+}
+
+.menuLinkItem:not(.btn) {
+    display: block;
+    padding: 15px 10px;
+    text-transform: capitalize;
+    white-space: nowrap;
+    line-height: 1;
+    font-size: 16px;
+    font-weight: 900;
+    @include transition(all .6s ease-in-out);
+    text-align: center;
+
+    .active &,
+    &:hover,
+    &:focus {
+        box-shadow: inset 0 -4px 0 $brand_secondary;
+    }
+
+    @include MQ(L) {
+        padding: 0px 10px;
+        line-height: $header_height;
+        
+        .active &,
+        &:hover,
+        &:focus {
+            color: $color_white;
+        }
+    }
+}
+
+.control_label {
+    margin-left: 5px;
+
+    @include MQ-MAX(M) {
+        display: none;
+    }
+}
+
+.nav_trigger {
+    display: inline-block;
+    margin-left: 20px;
+    margin-top: 15px;
+    
+    @include MQ(L) {
+        display: none;
+    }
+}
+
+.primary-nav-trigger {
+    position: relative;
+}
+
+.menu-icon {
+    /* this span is the central line of the menu icon */
+    display: block;
+    width: 24px;
+    height: 2px;
+    position: relative;
+    background-color: $border_grey;
+    @include transition(background-color .6s);
+    /* these are the upper and lower lines in the menu icon */
+    &::before,
+    &:after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-color: $border_grey;
+        right: 0;
+        @include transition(transform .6s, top .6s, background-color 0s);
+    }
+    &::before {
+        top: -7px;
+    }
+    &::after {
+        top: 7px;
+    }
+    &.is-clicked {
+        background-color: rgba($brand_accent, 0);
+        &::before,
+        &::after {
+            background-color: rgba($brand_red, 1);
+        }
+        &::before {
+            top: 0;
+            @include transform(rotate(135deg));
+        }
+        &::after {
+            top: 0;
+            @include transform(rotate(225deg));
+        }
+    }
+}
+
+.menu-text {
+    font-size: 9px;
+    color: $border_grey;
+}

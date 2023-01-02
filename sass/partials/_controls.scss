@@ -1,0 +1,43 @@
+.selectorWrapper {
+    display: block;
+    padding: 25px 15px;
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid $border_grey_light;
+    color: $color_grey_dark;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+
+    &:hover, &:focus, .itemSelected > & {
+        background-color: $brand_accent_light;
+        border-color: $brand_accent;
+        color: $brand_black;
+    }
+}
+
+.detail_control {
+    display: block;
+    clear: both;
+}
+
+.back_btn {
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: inherit;
+    fill: inherit;
+    opacity: .65;
+        
+    &:hover, &:focus {
+        text-decoration: none;
+        opacity: 1;
+    }
+}
+
+.back_icon {
+    margin-right: 5px;
+    flex-shrink: 0;
+}

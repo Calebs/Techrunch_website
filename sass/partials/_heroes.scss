@@ -1,0 +1,132 @@
+%hero_background {
+    background-size: cover;
+    width: 100%;
+    position: relative;
+    background-position: top right;
+    background-repeat: no-repeat;
+    z-index: 1;
+    overflow: hidden;
+    min-height: 420px;
+}
+
+.hero_area {
+    @extend %hero_background;
+    mix-blend-mode: darken;
+    background-color: $brand_primary;
+    
+    @include MQ(M) {
+        font-size: 21px;
+    }
+    
+    .container {
+        z-index: 10;
+    }
+}
+
+.home_hero {
+    background-image: url(../img/banners/heroImg_home.png);
+}
+
+.approach_hero {
+    background-image: url(../img/banners/heroImg_approach.png);
+}
+
+.services_hero {
+    background-image: url(../img/banners/heroImg_Services.png);
+}
+
+.about_hero {
+    background-image: url(../img/banners/heroImg_about.png);
+}
+
+.heroContentWrapper {
+    padding: 150px 0 70px;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+
+    .contact_hero & {
+        min-height: auto;
+    }
+
+    @include MQ(M) {
+        padding-top: 220px;
+        padding-bottom: 150px;
+    }
+}
+
+.hero_title {
+    font-size: 32px;
+    @include break-inside(avoid);
+    
+    @include MQ(M) {
+        font-size: 48px;
+    }
+}
+
+.heroContentBoxWrapper {
+    display: block;
+    width: 100%;
+    position: relative;
+    padding: 25px 15px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 6px rgba(black, .15);
+
+    @include MQ(M) {
+        padding: 40px;
+    }
+}
+
+.bannerBlob {
+    display: block;
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bannerBlobItem {
+    max-width: 240px;
+    height: 100%;
+    background-size: contain;
+    background-position: center;
+}
+
+.blobTopLeft {
+    top: 0;
+    left: 0px;
+    background-position: top;
+    background-image: url(../img/banners/footer_slushes_tl.svg);
+}
+
+.blobBottomRight {
+    bottom: 0;
+    right: 0px;
+    max-width: 250px;
+    background-position: bottom;
+    background-image: url(../img/banners/footer_slushes_br.svg);
+
+    @include MQ(M) {
+        max-width: 400px;
+    }
+}
+
+.blobBottom {
+    bottom: 0;
+    right: 0px;
+    left: 0;
+    height: 80px;
+    background-position: bottom;
+    background-image: url(../img/banners/section_slush_bottom.svg)
+}
+
+.blobTop {
+    top: 0;
+    right: 0px;
+    left: 0;
+    height: 120px;
+    background-position: top;
+    background-image: url(../img/banners/section_slush_top.svg)
+}
