@@ -169,9 +169,19 @@
     }
 }
 
+@include MQ-MAX(M) {
+    .brandPrecept + .brandPrecept {
+        margin-top: 40px;
+    }
+}
+
 .preceptIcon {
     max-width: 96px;
     margin-bottom: 20px;
+
+    @include MQ-MAX(M) {
+        max-width: 64px;
+    }
 }
 
 .preceptInfo {
