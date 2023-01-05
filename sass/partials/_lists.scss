@@ -189,6 +189,7 @@
 .logo_grid {
     display: grid;
     @include flexbox();
+    flex-wrap: wrap;
     width: 100%;
     justify-content: center;
     padding-top: 30px;
@@ -196,14 +197,20 @@
 
 .logo_item {
     text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
 
     img {
         display: inline-block;
-        max-height: 64px;
+        max-height: 56px;
         width: auto;
+
+        @include MQ(M) {
+            max-height: 64px;
+        }
     }
 
     + .logo_item {
-        margin-left: 45px;
+        margin-left: 40px;
     }
 }

@@ -2108,7 +2108,7 @@ header[role="banner"] .brand_img {
 
 /* line 77, ../sass/partials/_sections.scss */
 .title_lg {
-  font-size: 32px;
+  font-size: 30px;
   /* Tablets and phablets */
 }
 @media only screen and (min-width: 768px) {
@@ -2983,24 +2983,34 @@ footer[role="contentinfo"] {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   justify-content: center;
   padding-top: 30px;
 }
 
-/* line 197, ../sass/partials/_lists.scss */
+/* line 198, ../sass/partials/_lists.scss */
 .logo_item {
   text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
-/* line 200, ../sass/partials/_lists.scss */
+/* line 203, ../sass/partials/_lists.scss */
 .logo_item img {
   display: inline-block;
-  max-height: 64px;
+  max-height: 56px;
   width: auto;
+  /* Tablets and phablets */
 }
-/* line 206, ../sass/partials/_lists.scss */
+@media only screen and (min-width: 768px) {
+  /* line 203, ../sass/partials/_lists.scss */
+  .logo_item img {
+    max-height: 64px;
+  }
+}
+/* line 213, ../sass/partials/_lists.scss */
 .logo_item + .logo_item {
-  margin-left: 45px;
+  margin-left: 40px;
 }
 
 /* line 1, ../sass/partials/_controls.scss */
